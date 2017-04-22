@@ -1,0 +1,958 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/evanlucas/gcr"
+
+    >gcr (v3.0.0)</a>
+</h1>
+<h4>A node gitlab-ci-runner</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gcr">module gcr</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">gcr.</span>loaded</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gcr.client">
+            function <span class="apidocSignatureSpan">gcr.</span>client
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gcr.load">
+            function <span class="apidocSignatureSpan">gcr.</span>load
+            <span class="apidocSignatureSpan">(opts, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gcr.runner">
+            function <span class="apidocSignatureSpan">gcr.</span>runner
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">gcr.</span>_eventsCount</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gcr.</span>_events</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gcr.</span>client.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gcr.</span>domain</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gcr.</span>runner.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gcr.</span>utils</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">gcr.</span>root</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">gcr.</span>version</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gcr.client">module gcr.client</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gcr.client.client">
+            function <span class="apidocSignatureSpan">gcr.</span>client
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gcr.client.prototype">module gcr.client.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gcr.client.prototype.apiUrl">
+            function <span class="apidocSignatureSpan">gcr.client.prototype.</span>apiUrl
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gcr.client.prototype.getBuild">
+            function <span class="apidocSignatureSpan">gcr.client.prototype.</span>getBuild
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gcr.client.prototype.registerRunner">
+            function <span class="apidocSignatureSpan">gcr.client.prototype.</span>registerRunner
+            <span class="apidocSignatureSpan">(pubkey, token, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gcr.client.prototype.updateBuild">
+            function <span class="apidocSignatureSpan">gcr.client.prototype.</span>updateBuild
+            <span class="apidocSignatureSpan">(id, state, trace, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gcr.runner">module gcr.runner</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gcr.runner.runner">
+            function <span class="apidocSignatureSpan">gcr.</span>runner
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gcr.runner.super_">
+            function <span class="apidocSignatureSpan">gcr.runner.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gcr.runner.prototype">module gcr.runner.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gcr.runner.prototype.checkQueue">
+            function <span class="apidocSignatureSpan">gcr.runner.prototype.</span>checkQueue
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gcr.runner.prototype.getBuild">
+            function <span class="apidocSignatureSpan">gcr.runner.prototype.</span>getBuild
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gcr.runner.prototype.projectIsRunning">
+            function <span class="apidocSignatureSpan">gcr.runner.prototype.</span>projectIsRunning
+            <span class="apidocSignatureSpan">(id)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gcr.runner.prototype.runBuild">
+            function <span class="apidocSignatureSpan">gcr.runner.prototype.</span>runBuild
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gcr.runner.prototype.start">
+            function <span class="apidocSignatureSpan">gcr.runner.prototype.</span>start
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gcr.utils">module gcr.utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gcr.utils.genSSHKey">
+            function <span class="apidocSignatureSpan">gcr.utils.</span>genSSHKey
+            <span class="apidocSignatureSpan">(fp, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gcr.utils.maybeGenSSHKey">
+            function <span class="apidocSignatureSpan">gcr.utils.</span>maybeGenSSHKey
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gcr" id="apidoc.module.gcr">module gcr</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.gcr.client" id="apidoc.element.gcr.client">
+        function <span class="apidocSignatureSpan">gcr.</span>client
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Client() {
+  if (!(this instanceof Client))
+    return new Client()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gcr.load" id="apidoc.element.gcr.load">
+        function <span class="apidocSignatureSpan">gcr.</span>load
+        <span class="apidocSignatureSpan">(opts, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">load = function (opts, cb) {
+  if (&#x27;function&#x27; === typeof opts) cb = opts, opts = {}
+  if (gcr.loaded) return cb()
+  mkdirp(gcr.root, function(err) {
+    log.resume()
+    if (err) {
+      err.heading = &#x27;[mkdirp]&#x27;
+      return cb(err)
+    }
+    nconf.file({ file: confFile })
+    nconf.defaults(require(&#x27;./config.default&#x27;)(opts))
+    if (opts.url) {
+      nconf.set(&#x27;url&#x27;, opts.url)
+    }
+    if (opts.token) {
+      nconf.set(&#x27;token&#x27;, opts.token)
+    }
+    if (opts.buildDir) {
+      nconf.set(&#x27;buildDir&#x27;, opts.buildDir)
+    }
+    if (opts.npm) {
+      nconf.set(&#x27;npm&#x27;, opts.npm)
+    }
+    if (opts.hasOwnProperty(&#x27;strictSSL&#x27;)) {
+      nconf.set(&#x27;strictSSL&#x27;, opts.strictSSL)
+    }
+    if (opts.timeout) {
+      nconf.set(&#x27;timeout&#x27;, opts.timeout)
+    }
+    if (!nconf.get(&#x27;buildDir&#x27;)) {
+      nconf.set(&#x27;buildDir&#x27;, &#x27;/tmp/builds&#x27;)
+    }
+    if (opts.keypath) {
+      nconf.set(&#x27;keypath&#x27;, opts.keypath)
+    }
+    gcr.config = nconf
+    chain([
+        validateGit
+      , validateSetup
+      , saveConfig
+    ], cb)
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        })
+      }
+    })
+  })
+}
+}
+
+gcr.<span class="apidocCodeKeywordSpan">load</span>(parsed, function(err) {
+if (err) {
+  var t = err.heading || &#x27;&#x27;
+  delete err.heading
+  log.error(t, err)
+  process.exit(1)
+}
+var questions = []
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gcr.runner" id="apidoc.element.gcr.runner">
+        function <span class="apidocSignatureSpan">gcr.</span>runner
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Runner() {
+  if (!(this instanceof Runner))
+    return new Runner()
+  EventEmitter.call(this)
+  // { buildId: projectId }
+  this.builds = {}
+  // { buildId: buildData }
+  this.queue = {}
+  this.interval = null
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gcr.client" id="apidoc.module.gcr.client">module gcr.client</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gcr.client.client" id="apidoc.element.gcr.client.client">
+        function <span class="apidocSignatureSpan">gcr.</span>client
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Client() {
+  if (!(this instanceof Client))
+    return new Client()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gcr.client.prototype" id="apidoc.module.gcr.client.prototype">module gcr.client.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gcr.client.prototype.apiUrl" id="apidoc.element.gcr.client.prototype.apiUrl">
+        function <span class="apidocSignatureSpan">gcr.client.prototype.</span>apiUrl
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">apiUrl = function () {
+  return gcr.config.get(&#x27;url&#x27;)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  , token: gcr.config.get(&#x27;token&#x27;)
+  }
+, json: true
+, strictSSL: gcr.config.get(&#x27;strictSSL&#x27;)
+}
+
+log.verbose(&#x27;[client]&#x27;, &#x27;update build&#x27;, id, state)
+opts.uri = urlJoin( self.<span class="apidocCodeKeywordSpan">apiUrl</span>()
+                  , util.format(&#x27;/api/v1/builds/%d.json&#x27;, id)
+                  )
+log.http(&#x27;PUT&#x27;, opts.uri)
+request.put(opts, function(err, res, body) {
+  if (err) return cb &#x26;&#x26; cb(err)
+  if (res.statusCode === 200) {
+    log.http(200, opts.uri)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gcr.client.prototype.getBuild" id="apidoc.element.gcr.client.prototype.getBuild">
+        function <span class="apidocSignatureSpan">gcr.client.prototype.</span>getBuild
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getBuild = function (cb) {
+  var self = this
+  log.info(&#x27;[client]&#x27;, &#x27;checking for builds...&#x27;)
+
+  var opts = {
+    body: {
+      token: gcr.config.get(&#x27;token&#x27;)
+    }
+  , json: true
+  , strictSSL: gcr.config.get(&#x27;strictSSL&#x27;)
+  }
+
+  opts.uri = urlJoin(self.apiUrl(), &#x27;/api/v1/builds/register.json&#x27;)
+  request.post(opts, function(err, res, body) {
+    if (err) return cb &#x26;&#x26; cb(err)
+    log.http(res.statusCode, opts.uri)
+    if (res.statusCode === 201) {
+      var o = {
+        id: body.id
+      , project_id: body.project_id
+      , commands: body.commands.replace(/\r\n/g, &#x27;\n&#x27;).split(&#x27;\n&#x27;)
+      , repo_url: body.repo_url
+      , ref: body.sha
+      , ref_name: body.before_sha
+      , allow_git_fetch: body.allow_git_fetch
+      , timeout: body.timeout
+      , variables: body.variables
+      }
+      return cb &#x26;&#x26; cb(null, o)
+    } else if (res.statusCode === 403) {
+      log.error(&#x27;[client]&#x27;, &#x27;Unable to get builds&#x27;, &#x27;forbidden&#x27;)
+      return cb &#x26;&#x26; cb(new Error(&#x27;Unable to get builds&#x27;))
+    } else {
+      log.verbose(&#x27;[client]&#x27;, &#x27;no builds found&#x27;)
+      return cb &#x26;&#x26; cb()
+    }
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+this.interval = null
+}
+
+util.inherits(Runner, EventEmitter)
+
+Runner.prototype.start = function() {
+var self = this
+self.<span class="apidocCodeKeywordSpan">getBuild</span>()
+this.interval = setInterval(function() {
+  self.getBuild()
+}, 5000)
+}
+
+Runner.prototype.projectIsRunning = function(id) {
+var builds = Object.keys(this.builds)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gcr.client.prototype.registerRunner" id="apidoc.element.gcr.client.prototype.registerRunner">
+        function <span class="apidocSignatureSpan">gcr.client.prototype.</span>registerRunner
+        <span class="apidocSignatureSpan">(pubkey, token, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">registerRunner = function (pubkey, token, cb) {
+  var self = this
+  var opts = {
+    body: {
+      public_key: pubkey
+    , token: token
+    }
+  , json: true
+  , strictSSL: gcr.config.get(&#x27;strictSSL&#x27;)
+  }
+
+  opts.uri = urlJoin(self.apiUrl(), &#x27;/api/v1/runners/register.json&#x27;)
+  log.http(&#x27;POST&#x27;, opts.uri)
+  request.post(opts, function(err, res, body) {
+    if (err) return cb &#x26;&#x26; cb(err)
+    if (res.statusCode === 201) {
+      log.http(201, body.token)
+      return cb &#x26;&#x26; cb(null, body.token)
+    } else {
+      log.http(res.statusCode, opts.uri)
+      log.error(&#x27;[client]&#x27;, &#x27;register runner&#x27;, body)
+      return cb &#x26;&#x26; cb(new Error(&#x27;Invalid response&#x27;))
+    }
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (!input) return done(&#x27;Registration token is required&#x27;)
+var fp = gcr.config.get(&#x27;keypath&#x27;)
+fs.readFile(fp, &#x27;utf8&#x27;, function(err, content) {
+  if (err) {
+    log.error(&#x27;[readFile]&#x27;, &#x27;error reading public key&#x27;, err)
+    process.exit(1)
+  }
+  gcr.client.<span class="apidocCodeKeywordSpan">registerRunner</span>(content, input, function(err, token){
+    if (err) {
+      log.error(&#x27;[register]&#x27;, &#x27;error registering&#x27;, err)
+      process.exit(1)
+    } else {
+      gcr.config.set(&#x27;token&#x27;, token)
+      gcr.config.save(function(err) {
+        done(true)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gcr.client.prototype.updateBuild" id="apidoc.element.gcr.client.prototype.updateBuild">
+        function <span class="apidocSignatureSpan">gcr.client.prototype.</span>updateBuild
+        <span class="apidocSignatureSpan">(id, state, trace, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">updateBuild = function (id, state, trace, cb) {
+  var self = this
+  log.info(&#x27;[client]&#x27;, &#x27;submitting build %d to coordinator...&#x27;, id)
+  var opts = {
+    body: {
+      state: state
+    , trace: trace
+    , token: gcr.config.get(&#x27;token&#x27;)
+    }
+  , json: true
+  , strictSSL: gcr.config.get(&#x27;strictSSL&#x27;)
+  }
+
+  log.verbose(&#x27;[client]&#x27;, &#x27;update build&#x27;, id, state)
+  opts.uri = urlJoin( self.apiUrl()
+                    , util.format(&#x27;/api/v1/builds/%d.json&#x27;, id)
+                    )
+  log.http(&#x27;PUT&#x27;, opts.uri)
+  request.put(opts, function(err, res, body) {
+    if (err) return cb &#x26;&#x26; cb(err)
+    if (res.statusCode === 200) {
+      log.http(200, opts.uri)
+      return cb &#x26;&#x26; cb(null, true)
+    } else {
+      log.verbose(&#x27;[response]&#x27;, body)
+      log.http(res.statusCode, opts.uri)
+      return cb &#x26;&#x26; cb(null, false)
+    }
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gcr.runner" id="apidoc.module.gcr.runner">module gcr.runner</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gcr.runner.runner" id="apidoc.element.gcr.runner.runner">
+        function <span class="apidocSignatureSpan">gcr.</span>runner
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Runner() {
+  if (!(this instanceof Runner))
+    return new Runner()
+  EventEmitter.call(this)
+  // { buildId: projectId }
+  this.builds = {}
+  // { buildId: buildData }
+  this.queue = {}
+  this.interval = null
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gcr.runner.super_" id="apidoc.element.gcr.runner.super_">
+        function <span class="apidocSignatureSpan">gcr.runner.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gcr.runner.prototype" id="apidoc.module.gcr.runner.prototype">module gcr.runner.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gcr.runner.prototype.checkQueue" id="apidoc.element.gcr.runner.prototype.checkQueue">
+        function <span class="apidocSignatureSpan">gcr.runner.prototype.</span>checkQueue
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">checkQueue = function () {
+  var self = this
+  var queue = this.queue
+  var queuedProjects = Object.keys(queue).map(function(build) {
+    return queue[build]
+  })
+  queuedProjects.forEach(function(proj) {
+    if (self.projectIsRunning(proj.project_id)) {
+      // We are already running a build for this project
+      // It is already queued so do nothing
+      return
+    }
+    self.runBuild(proj)
+    delete self.queue[proj.id]
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      log.info(&#x27;[runner]&#x27;, &#x27;build success [%s]&#x27;, build.opts.id)
+    } else {
+      log.error(&#x27;[runner]&#x27;, &#x27;build failed [%s]&#x27;, build.opts.id)
+    }
+    // cleanup
+    delete self.builds[build.opts.id]
+    delete build
+    self.<span class="apidocCodeKeywordSpan">checkQueue</span>()
+  })
+  build.run()
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gcr.runner.prototype.getBuild" id="apidoc.element.gcr.runner.prototype.getBuild">
+        function <span class="apidocSignatureSpan">gcr.runner.prototype.</span>getBuild
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getBuild = function () {
+  var self = this
+  gcr.client.getBuild(function(err, data) {
+    if (err) {
+      log.error(&#x27;[runner]&#x27;, &#x27;error getting builds&#x27;, err)
+      return
+    }
+    if (!data) return
+    var buildId = data.id
+    var projectId = data.project_id
+    if (self.projectIsRunning(projectId)) {
+      // We are already running a build for this project
+      // queue it
+      self.queue[buildId] = data
+    } else {
+      // Go ahead and start the build
+      self.runBuild(data)
+    }
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+this.interval = null
+}
+
+util.inherits(Runner, EventEmitter)
+
+Runner.prototype.start = function() {
+var self = this
+self.<span class="apidocCodeKeywordSpan">getBuild</span>()
+this.interval = setInterval(function() {
+  self.getBuild()
+}, 5000)
+}
+
+Runner.prototype.projectIsRunning = function(id) {
+var builds = Object.keys(this.builds)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gcr.runner.prototype.projectIsRunning" id="apidoc.element.gcr.runner.prototype.projectIsRunning">
+        function <span class="apidocSignatureSpan">gcr.runner.prototype.</span>projectIsRunning
+        <span class="apidocSignatureSpan">(id)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">projectIsRunning = function (id) {
+  var builds = Object.keys(this.builds)
+    , len = builds.length
+
+  for (var i=0; i&#x3c;len; i++) {
+    var key = builds[i]
+    var proj = this.builds[key]
+    if (+proj === +id) return true
+  }
+
+  return false
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (err) {
+  log.error(&#x27;[runner]&#x27;, &#x27;error getting builds&#x27;, err)
+  return
+}
+if (!data) return
+var buildId = data.id
+var projectId = data.project_id
+if (self.<span class="apidocCodeKeywordSpan">projectIsRunning</span>(projectId)) {
+  // We are already running a build for this project
+  // queue it
+  self.queue[buildId] = data
+} else {
+  // Go ahead and start the build
+  self.runBuild(data)
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gcr.runner.prototype.runBuild" id="apidoc.element.gcr.runner.prototype.runBuild">
+        function <span class="apidocSignatureSpan">gcr.runner.prototype.</span>runBuild
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">runBuild = function (data) {
+  var self = this
+  this.builds[data.id] = data.project_id
+  var build = new Build(data)
+  build.on(&#x27;done&#x27;, function(success) {
+    if (success) {
+      log.info(&#x27;[runner]&#x27;, &#x27;build success [%s]&#x27;, build.opts.id)
+    } else {
+      log.error(&#x27;[runner]&#x27;, &#x27;build failed [%s]&#x27;, build.opts.id)
+    }
+    // cleanup
+    delete self.builds[build.opts.id]
+    delete build
+    self.checkQueue()
+  })
+  build.run()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var projectId = data.project_id
+  if (self.projectIsRunning(projectId)) {
+    // We are already running a build for this project
+    // queue it
+    self.queue[buildId] = data
+  } else {
+    // Go ahead and start the build
+    self.<span class="apidocCodeKeywordSpan">runBuild</span>(data)
+  }
+})
+}
+
+Runner.prototype.checkQueue = function() {
+var self = this
+var queue = this.queue
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gcr.runner.prototype.start" id="apidoc.element.gcr.runner.prototype.start">
+        function <span class="apidocSignatureSpan">gcr.runner.prototype.</span>start
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">start = function () {
+  var self = this
+  self.getBuild()
+  this.interval = setInterval(function() {
+    self.getBuild()
+  }, 5000)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (!gcr.config.get(&#x27;token&#x27;)) {
+    questions.push(tokenQuestion)
+    needsRegToken = true
+  }
+
+  if (questions.length) {
+    inquirer.prompt(questions, function(answers) {
+      gcr.runner.<span class="apidocCodeKeywordSpan">start</span>()
+    })
+  } else {
+    gcr.runner.start()
+  }
+})
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gcr.utils" id="apidoc.module.gcr.utils">module gcr.utils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gcr.utils.genSSHKey" id="apidoc.element.gcr.utils.genSSHKey">
+        function <span class="apidocSignatureSpan">gcr.utils.</span>genSSHKey
+        <span class="apidocSignatureSpan">(fp, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">genSSHKey = function (fp, cb) {
+  var k = isWin
+    ? &#x27;ssh-keygen.exe&#x27;
+    : &#x27;ssh-keygen&#x27;
+  var cmd = k + &#x27; -t rsa -f &#x27; + fp + &#x27; -N &#x22;&#x22;&#x27;
+  exec(cmd, {
+    env: process.env
+  , cwd: process.cwd()
+  }, function(err, stdout, stderr) {
+    if (err) return cb &#x26;&#x26; cb(err)
+    return cb &#x26;&#x26; cb(null, stdout)
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gcr.utils.maybeGenSSHKey" id="apidoc.element.gcr.utils.maybeGenSSHKey">
+        function <span class="apidocSignatureSpan">gcr.utils.</span>maybeGenSSHKey
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function maybeGenSSHKey(cb) {
+  var keypath = gcr.config.get(&#x27;keypath&#x27;)
+  fs.exists(keypath, function(e) {
+    if (e) return cb()
+    gcr.utils.genSSHKey(keypath, function(err) {
+      if (err) {
+        err.heading = &#x27;[ssh-keygen]&#x27;
+        return cb(err)
+      }
+      cb()
+    })
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
