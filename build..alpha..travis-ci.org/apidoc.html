@@ -636,7 +636,17 @@ fs.readFile(fp, &#x27;utf8&#x27;, function(err, content) {
     }
   })
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      cb &#x26;&#x26; cb()
+    })
+  })
+}
+
+Build.prototype.update = function(cb) {
+  var id = this.opts.id
+  gcr.client.<span class="apidocCodeKeywordSpan">updateBuild</span>(id, this.state, this.output, cb)
+}
+...</pre></li>
     </ul>
 
 
@@ -919,7 +929,23 @@ var queue = this.queue
     return cb &#x26;&#x26; cb(null, stdout)
   })
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+})
+}
+
+utils.maybeGenSSHKey = function maybeGenSSHKey(cb) {
+var keypath = gcr.config.get(&#x27;keypath&#x27;)
+fs.exists(keypath, function(e) {
+  if (e) return cb()
+  gcr.utils.<span class="apidocCodeKeywordSpan">genSSHKey</span>(keypath, function(err) {
+    if (err) {
+      err.heading = &#x27;[ssh-keygen]&#x27;
+      return cb(err)
+    }
+    cb()
+  })
+})
+...</pre></li>
     </ul>
 
 
@@ -944,7 +970,23 @@ var queue = this.queue
     })
   })
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+function validateSetup(cb) {
+mkdirp(gcr.config.get(&#x27;buildDir&#x27;), function(err) {
+  if (err) {
+    err.heading = &#x27;[mkdirp]&#x27;
+    return cb &#x26;&#x26; cb(err)
+  }
+  gcr.utils.<span class="apidocCodeKeywordSpan">maybeGenSSHKey</span>(function(err) {
+    if (err) {
+      err.heading = &#x27;[ssh-keygen]&#x27;
+      return cb(err)
+    } else {
+      cb()
+    }
+  })
+...</pre></li>
     </ul>
 
 
