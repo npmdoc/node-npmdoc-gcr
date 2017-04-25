@@ -1,6 +1,6 @@
 # npmdoc-gcr
 
-#### api documentation for  [gcr (v3.0.0)](https://github.com/evanlucas/gcr)  [![npm package](https://img.shields.io/npm/v/npmdoc-gcr.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gcr) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gcr.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gcr)
+#### basic api documentation for  [gcr (v3.0.0)](https://github.com/evanlucas/gcr)  [![npm package](https://img.shields.io/npm/v/npmdoc-gcr.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gcr) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gcr.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gcr)
 
 #### A node gitlab-ci-runner
 
